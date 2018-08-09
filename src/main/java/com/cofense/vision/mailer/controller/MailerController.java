@@ -1,5 +1,6 @@
 package com.cofense.vision.mailer.controller;
 
+import java.io.IOException;
 import com.cofense.vision.mailer.service.MailerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +19,10 @@ public class MailerController {
     MailerService mailerService;
 
     @GetMapping
-    public void sendMail(){
+    public void sendMail() throws IOException{
         log.info("sending email !!!!");
         mailerService.sendBulkEmails();
+        mailerService.sendEmailAlert();
 
     }
 
